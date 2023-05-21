@@ -3,15 +3,15 @@ var canvas = new fabric.Canvas("myCanvas")
 //Set initial positions for ball and hole images.
 ball_x=0;
 ball_y=0;
-hole_x=800;
 hole_y=400;
+hole_x=800;
 
 block_image_width = 5;
 block_image_height = 5;
 
 function load_img(){
 	// write code to Upload golf image on the canvas
-	fabric.Image.fromURL("gold-h1.png", function(Img)
+	fabric.Image.fromURL("golf-h.png", function(Img)
 	 {
 		hole_obj = Img;
 		 hole_obj.scaleToWidth(50);
@@ -73,45 +73,49 @@ function my_keydown(e)
 	
 	function up()
 	{
-		if(ball_x >5)
+		if(ball_y >=0)
 		{
 			// Write a code to move ball upward.
+			ball_y = ball_y -  block_image_height;
+			 console.log("block image height = " + block_image_height);
+			 console.log("When down arrow key is pressed, X = " + ball_x + ", y ="+ball_y);
+			 canvas.remove(ball_obj); new_image();
 		}	
 	}
 
 	function down()
 	{
-		if(ball_x >5)
+		if(ball_y <=500)
 		{
 			// Write a code to move ball dpwnward?.
-			ball_y = ball_y + block_iamge_height;
-			 console.log("block image height = " + block_image_height);
-			 console.log("When down arrow key is pressed, X = " + ball_x + ", y ="+ball_y);
-			 canvas.remove(ball_obk); new_image();
+			ball_y = ball_y + block_image_height;
+			console.log("block image height = " + block_image_height);
+			console.log("When down arrow key is pressed, X = " + ball_x + ", y ="+ball_y);
+			canvas.remove(ball_obj); new_image();
 		}	
 	}
 
 	function left()
 	{
-		if(ball_x >5)
+		if(ball_x >0)
 		{
 			// Write a code to move ball left side.
-			ball_y = ball_y + block_iamge_height;
-			 console.log("block image height = " + block_image_height);
+			ball_x = ball_x + block_image_width;
+			 console.log("block image height = " + block_image_width);
 			 console.log("When down arrow key is pressed, X = " + ball_x + ", y ="+ball_y);
-			 canvas.remove(ball_obk); new_image();
+			 canvas.remove(ball_obj); new_image();
 		}
 	}
 
 	function right()
 	{
-		if(ball_x <=1050)
+		if(ball_x <=850)
 		{
 			// Write a code to move ball right side.
-			ball_y = ball_y + block_iamge_height;
-			 console.log("block image height = " + block_image_height);
+			ball_x = ball_x + block_image_width;
+			 console.log("block image height = " + block_image_width);
 			 console.log("When down arrow key is pressed, X = " + ball_x + ", y ="+ball_y);
-			 canvas.remove(ball_obk); new_image();
+			 canvas.remove(ball_obj); new_image();
 		}
 	}
 	
